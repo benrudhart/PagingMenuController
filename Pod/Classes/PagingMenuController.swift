@@ -219,36 +219,34 @@ public class PagingMenuController: UIViewController, UIScrollViewDelegate {
     // MARK: - UISCrollViewDelegate
 
     public func scrollViewDidScroll(scrollView: UIScrollView) {
-        guard toViewController == nil && scrollView.isEqual(contentScrollView) else { return }
+        guard toViewController == nil && scrollView === contentScrollView else { return }
         guard let pagingViewControllers = pagingViewControllers else { return }
 
-        var isScrollingLeft = lastVisiblePage > currentPage
-
-        if case .Infinite = options.menuDisplayMode {
-            if scrollView.contentOffset.x < offsetXFirstPage { // index < page 0 -> copy last ViewController to image
-                isScrollingLeft = true
-                setupImageViewCopy(copyType: .Front)
-            } else if scrollView.contentOffset.x > pagingViewControllers.last?.view.frame.origin.x {
-                setupImageViewCopy(copyType: .Back)
-            }
-        }
-
-        func nextPageIndex(currentPage currentPage: Int) -> Int {
-            let count = pagingViewControllers.count
-            let nextPage = currentPage + (isScrollingLeft ? -1 : 1)
+        var nextViewController: UIViewController? {
+            let isScrollingRight = scrollView.panGestureRecognizer.velocityInView(scrollView).x < 0
+            let nextPage = lastVisiblePage + (isScrollingRight ? 1 : -1)
+            let pageCount = pagingViewControllers.count
 
             switch nextPage {
-            case _ where nextPage >= count:
-                return 0
-            case _ where nextPage < 0:
-                return count - 1
+            case 0..<pageCount:
+                return pagingViewControllers[nextPage]
+
             default:
-                return nextPage
+                if case .Infinite = options.menuDisplayMode {
+                    if scrollView.contentOffset.x < offsetXFirstPage { // index < page 0 -> copy last ViewController to image
+                        setupImageViewCopy(copyType: .Front)
+                        return pagingViewControllers.last
+                    } else if scrollView.contentOffset.x > pagingViewControllers.last?.view.frame.origin.x {
+                        setupImageViewCopy(copyType: .Back)
+                        return pagingViewControllers.first
+                    }
+                }
+
+                return nil
             }
         }
 
-        let nextPage = nextPageIndex(currentPage: lastVisiblePage)
-        self.toViewController = pagingViewControllers[nextPage]
+        toViewController = nextViewController
         toViewController?.beginAppearanceTransition(true, animated: true)
         toViewController?.endAppearanceTransition()
     }
