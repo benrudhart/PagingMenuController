@@ -263,6 +263,8 @@ public class PagingMenuController: UIViewController, UIScrollViewDelegate {
         }
 
         // update menuView
+
+        delegate?.willMoveToMenuPage?(currentPage)
         menuView.moveToMenu(page: currentPage, animated: true)
         delegate?.didMoveToMenuPage?(currentPage)
 
