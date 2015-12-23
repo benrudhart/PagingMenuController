@@ -19,14 +19,20 @@ public class PagingMenuController: UIViewController, UIScrollViewDelegate {
     private var options: PagingMenuOptions = PagingMenuOptions()
     public private(set) var menuView: MenuView!
     public var currentPage: Int {
-        let offsetX = contentScrollView?.contentOffset.x ?? 0
-        let page = Int(offsetX / view.bounds.width)
+        guard let
+            pageCount = pagingViewControllers?.count,
+            contentScrollView = contentScrollView
+            else { return 0 }
+
+        let offsetX = contentScrollView.contentOffset.x ?? 0
+        var page = Int(offsetX / view.bounds.width)
 
         if case .Infinite = options.menuDisplayMode {
-            return max(0, page - 1)
-        } else {
-            return page
+            page = max(0, page - 1)
         }
+
+        page = min(page, pageCount-1)
+        return page
     }
 
     public var currentViewController: UIViewController? {
