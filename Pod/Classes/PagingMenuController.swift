@@ -36,7 +36,7 @@ public class PagingMenuController: UIViewController, UIScrollViewDelegate {
     }
 
     public var currentViewController: UIViewController? {
-        guard currentPage > pagingViewControllers?.count else { return nil }
+        guard currentPage < pagingViewControllers?.count else { return nil }
         return pagingViewControllers?[currentPage]
     }
 
