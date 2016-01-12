@@ -165,11 +165,33 @@ public class PagingMenuController: UIViewController, UIScrollViewDelegate {
         super.init(coder: aDecoder)
     }
 
+    // MARK: - View Lifecycle
+
     public override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
 
         // position properly for Infinite mode
         menuView.moveToMenu(page: currentPage, animated: false)
+
+        currentViewController?.beginAppearanceTransition(true, animated: animated)
+    }
+
+    public override func viewDidAppear(animated: Bool) {
+        super.viewDidAppear(animated)
+
+        currentViewController?.endAppearanceTransition()
+    }
+
+    public override func viewWillDisappear(animated: Bool) {
+        super.viewWillDisappear(animated)
+
+        currentViewController?.beginAppearanceTransition(false, animated: animated)
+    }
+
+    public override func viewDidDisappear(animated: Bool) {
+        super.viewDidDisappear(animated)
+
+        currentViewController?.endAppearanceTransition()
     }
 
     override public func viewDidLayoutSubviews() {
@@ -202,6 +224,8 @@ public class PagingMenuController: UIViewController, UIScrollViewDelegate {
             }, completion: nil)
     }
 
+    // MARK: - Tasks
+
     public func setup(viewControllers viewControllers: [UIViewController]) {
         pagingViewControllers = viewControllers
 
@@ -220,6 +244,13 @@ public class PagingMenuController: UIViewController, UIScrollViewDelegate {
 
         view.setNeedsLayout()
         view.layoutIfNeeded()
+    }
+
+    // MARK: - ViewController Containment
+
+    public override func shouldAutomaticallyForwardAppearanceMethods() -> Bool {
+        // the appearance methods are invoked for the currentlyVisibleController in viewWill(/Did)(Dis)Appear:
+        return false
     }
 
     // MARK: - UISCrollViewDelegate
