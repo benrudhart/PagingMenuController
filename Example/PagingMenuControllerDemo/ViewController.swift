@@ -9,25 +9,71 @@
 import UIKit
 import PagingMenuController
 
+class LogVC: UIViewController {
+    override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(animated)
+
+        print(title!, " Will A")
+    }
+
+    override func viewDidAppear(animated: Bool) {
+        super.viewDidAppear(animated)
+
+        print(title!, " Did A")
+    }
+
+    override func viewWillDisappear(animated: Bool) {
+        super.viewWillDisappear(animated)
+
+        print(title!, " Will D")
+    }
+
+    override func viewDidDisappear(animated: Bool) {
+        super.viewDidDisappear(animated)
+
+        print(title!, " Did D ")
+    }
+}
+
 class ViewController: UIViewController, PagingMenuControllerDelegate {
 
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         
-        let usersViewController = self.storyboard?.instantiateViewControllerWithIdentifier("UsersViewController") as! UsersViewController
-        let repositoriesViewController = self.storyboard?.instantiateViewControllerWithIdentifier("RepositoriesViewController") as! RepositoriesViewController
-        let gistsViewController = self.storyboard?.instantiateViewControllerWithIdentifier("GistsViewController") as! GistsViewController
-        let organizationsViewController = self.storyboard?.instantiateViewControllerWithIdentifier("OrganizationsViewController") as! OrganizationsViewController
-        
+        let usersViewController = LogVC()
+        let repositoriesViewController = LogVC()
+        let gistsViewController = LogVC()
+        let organizationsViewController = LogVC()
+
+        usersViewController.view.backgroundColor = .redColor()
+        usersViewController.title = "red"
+        repositoriesViewController.view.backgroundColor = .blueColor()
+        repositoriesViewController.title = "blue"
+        gistsViewController.view.backgroundColor = .greenColor()
+        gistsViewController.title = "green"
+        organizationsViewController.view.backgroundColor = .yellowColor()
+        organizationsViewController.title = "yellow"
+
         let viewControllers = [usersViewController, repositoriesViewController, gistsViewController, organizationsViewController]
         
         let options = PagingMenuOptions()
-        options.menuHeight = 50
+
+
+        options.backgroundColor = .darkGrayColor()
+        options.selectedBackgroundColor = .darkGrayColor()
+        options.selectedTextColor = .whiteColor()
+
+        options.menuHeight = 44
+        options.menuItemMode = .RoundRect(radius: 3, horizontalPadding: 8, verticalPadding: 10, selectedColor: UIColor(red:0.094, green:0.102, blue:0.122, alpha:1))
+        options.selectedFont = UIFont.boldSystemFontOfSize(15)
+        options.menuDisplayMode = .Infinite(widthMode: .Fixed(width: 90))
+
+
         
         let pagingMenuController = self.childViewControllers.first as! PagingMenuController
         pagingMenuController.delegate = self
-        pagingMenuController.setup(viewControllers: viewControllers, options: options)
+        pagingMenuController.rebuild(viewControllers, options:options)
     }
 
     override func didReceiveMemoryWarning() {

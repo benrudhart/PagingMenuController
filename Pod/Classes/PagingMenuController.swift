@@ -62,7 +62,7 @@ public class PagingMenuController: UIViewController, UIScrollViewDelegate {
                 pagingViewControllers = self.pagingViewControllers,
                 contentScrollView = contentScrollView else { return }
 
-            let containerWidth = view.bounds.width
+            let containerWidth = UIScreen.mainScreen().bounds.width// view.bounds.width
             assert(containerWidth > 0)
 
             for (page, pagingViewController) in pagingViewControllers.enumerate() {

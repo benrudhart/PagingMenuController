@@ -13,14 +13,9 @@
 		707C60E81AFF822200BDAB0B /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 707C60E71AFF822200BDAB0B /* Images.xcassets */; };
 		707C60EB1AFF822200BDAB0B /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 707C60E91AFF822200BDAB0B /* LaunchScreen.xib */; };
 		707C60F71AFF822200BDAB0B /* PagingMenuControllerDemoTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 707C60F61AFF822200BDAB0B /* PagingMenuControllerDemoTests.swift */; };
-		707C61011AFF83C700BDAB0B /* UsersViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 707C61001AFF83C700BDAB0B /* UsersViewController.swift */; };
-		707C61031AFF843F00BDAB0B /* RepositoriesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 707C61021AFF843F00BDAB0B /* RepositoriesViewController.swift */; };
-		707C61051AFF845200BDAB0B /* GistsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 707C61041AFF845200BDAB0B /* GistsViewController.swift */; };
-		707C61071AFF846800BDAB0B /* OrganizationsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 707C61061AFF846800BDAB0B /* OrganizationsViewController.swift */; };
-		B47D044F762BB5D827DD6DC6 /* Pods_PagingMenuControllerDemo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 61E6E7408F0D9240F2125EDE /* Pods_PagingMenuControllerDemo.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
-		CC9834AF445FD5D22067BC36 /* Pods_PagingMenuControllerDemo2.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7973CCC1BB7BBFC90BA94CC3 /* Pods_PagingMenuControllerDemo2.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
-		DDA172CA689446F04F4C9097 /* Pods_PagingMenuControllerDemoTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8377B6E77661C5AA6112CC74 /* Pods_PagingMenuControllerDemoTests.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
-		EC13F4A01B84A92D00685199 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC13F49F1B84A92D00685199 /* DetailViewController.swift */; };
+		B47D044F762BB5D827DD6DC6 /* Pods_PagingMenuControllerDemo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 61E6E7408F0D9240F2125EDE /* Pods_PagingMenuControllerDemo.framework */; };
+		CC9834AF445FD5D22067BC36 /* Pods_PagingMenuControllerDemo2.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7973CCC1BB7BBFC90BA94CC3 /* Pods_PagingMenuControllerDemo2.framework */; };
+		DDA172CA689446F04F4C9097 /* Pods_PagingMenuControllerDemoTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8377B6E77661C5AA6112CC74 /* Pods_PagingMenuControllerDemoTests.framework */; };
 		EC7BA3FC1B524BB4007FB8A5 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC7BA3FB1B524BB4007FB8A5 /* AppDelegate.swift */; };
 		EC7BA3FE1B524BB4007FB8A5 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC7BA3FD1B524BB4007FB8A5 /* ViewController.swift */; };
 		EC7BA4031B524BB4007FB8A5 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EC7BA4021B524BB4007FB8A5 /* Images.xcassets */; };
@@ -73,17 +68,12 @@
 		707C60F01AFF822200BDAB0B /* PagingMenuControllerDemoTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PagingMenuControllerDemoTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		707C60F51AFF822200BDAB0B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		707C60F61AFF822200BDAB0B /* PagingMenuControllerDemoTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PagingMenuControllerDemoTests.swift; sourceTree = "<group>"; };
-		707C61001AFF83C700BDAB0B /* UsersViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UsersViewController.swift; sourceTree = "<group>"; };
-		707C61021AFF843F00BDAB0B /* RepositoriesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RepositoriesViewController.swift; sourceTree = "<group>"; };
-		707C61041AFF845200BDAB0B /* GistsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GistsViewController.swift; sourceTree = "<group>"; };
-		707C61061AFF846800BDAB0B /* OrganizationsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OrganizationsViewController.swift; sourceTree = "<group>"; };
 		7973CCC1BB7BBFC90BA94CC3 /* Pods_PagingMenuControllerDemo2.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PagingMenuControllerDemo2.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		8377B6E77661C5AA6112CC74 /* Pods_PagingMenuControllerDemoTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PagingMenuControllerDemoTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		8A43A77E541E67E86AA41BE0 /* Pods-PagingMenuControllerDemoTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PagingMenuControllerDemoTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-PagingMenuControllerDemoTests/Pods-PagingMenuControllerDemoTests.debug.xcconfig"; sourceTree = "<group>"; };
 		A8444D2212F28EF990A1A4B6 /* Pods-PagingMenuControllerDemo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PagingMenuControllerDemo.debug.xcconfig"; path = "Pods/Target Support Files/Pods-PagingMenuControllerDemo/Pods-PagingMenuControllerDemo.debug.xcconfig"; sourceTree = "<group>"; };
 		BFECDBB98E484B88553F4AA0 /* Pods-PagingMenuControllerDemoTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PagingMenuControllerDemoTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-PagingMenuControllerDemoTests/Pods-PagingMenuControllerDemoTests.release.xcconfig"; sourceTree = "<group>"; };
 		C67F4ECA52F2CFD5663796DB /* Pods-PagingMenuControllerDemo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PagingMenuControllerDemo.release.xcconfig"; path = "Pods/Target Support Files/Pods-PagingMenuControllerDemo/Pods-PagingMenuControllerDemo.release.xcconfig"; sourceTree = "<group>"; };
-		EC13F49F1B84A92D00685199 /* DetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
 		EC7BA3F71B524BB4007FB8A5 /* PagingMenuControllerDemo2.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PagingMenuControllerDemo2.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		EC7BA3FA1B524BB4007FB8A5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		EC7BA3FB1B524BB4007FB8A5 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -172,11 +162,6 @@
 			children = (
 				707C60E01AFF822100BDAB0B /* AppDelegate.swift */,
 				707C60E21AFF822100BDAB0B /* ViewController.swift */,
-				707C61001AFF83C700BDAB0B /* UsersViewController.swift */,
-				707C61021AFF843F00BDAB0B /* RepositoriesViewController.swift */,
-				707C61041AFF845200BDAB0B /* GistsViewController.swift */,
-				707C61061AFF846800BDAB0B /* OrganizationsViewController.swift */,
-				EC13F49F1B84A92D00685199 /* DetailViewController.swift */,
 				707C60E41AFF822100BDAB0B /* Main.storyboard */,
 				707C60E71AFF822200BDAB0B /* Images.xcassets */,
 				707C60E91AFF822200BDAB0B /* LaunchScreen.xib */,
@@ -571,13 +556,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				707C61051AFF845200BDAB0B /* GistsViewController.swift in Sources */,
-				707C61071AFF846800BDAB0B /* OrganizationsViewController.swift in Sources */,
-				707C61011AFF83C700BDAB0B /* UsersViewController.swift in Sources */,
-				707C61031AFF843F00BDAB0B /* RepositoriesViewController.swift in Sources */,
 				707C60E31AFF822100BDAB0B /* ViewController.swift in Sources */,
 				707C60E11AFF822100BDAB0B /* AppDelegate.swift in Sources */,
-				EC13F4A01B84A92D00685199 /* DetailViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
