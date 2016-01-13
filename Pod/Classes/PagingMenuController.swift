@@ -194,6 +194,8 @@ public class PagingMenuController: UIViewController, UIScrollViewDelegate {
         currentViewController?.endAppearanceTransition()
     }
 
+    private var initialOffsetAdjusted = false
+
     override public func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
 
@@ -201,8 +203,9 @@ public class PagingMenuController: UIViewController, UIScrollViewDelegate {
         menuView.contentInset.top = 0
 
         // position paging views correctly after view size is decided
-        if let currentViewController = currentViewController {
+        if !initialOffsetAdjusted, let currentViewController = currentViewController {
             contentScrollView.contentOffset.x = currentViewController.view!.frame.minX
+            initialOffsetAdjusted = true
         }
     }
 
@@ -476,15 +479,6 @@ public class PagingMenuController: UIViewController, UIScrollViewDelegate {
 
                 self.delegate?.didMoveToMenuPage?(page)
         }
-    }
-
-    private func shouldLoadPage(index: Int) -> Bool {
-        if case .Infinite = options.menuDisplayMode {
-            guard index == currentPage || index == previousIndex || index == nextIndex else { return false }
-        } else {
-            guard index >= previousIndex && index <= nextIndex else { return false }
-        }
-        return true
     }
 
     // MARK: - Page calculator
