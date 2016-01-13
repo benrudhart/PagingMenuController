@@ -256,7 +256,7 @@ public class PagingMenuController: UIViewController, UIScrollViewDelegate {
     // MARK: - UISCrollViewDelegate
 
     public func scrollViewDidScroll(scrollView: UIScrollView) {
-        guard toViewController == nil && scrollView === contentScrollView else { return }
+        guard toViewController == nil && fromViewController == nil && scrollView === contentScrollView else { return }
         guard let pagingViewControllers = pagingViewControllers else { return }
 
         var nextViewController: UIViewController? {
@@ -284,12 +284,14 @@ public class PagingMenuController: UIViewController, UIScrollViewDelegate {
         }
 
         toViewController = nextViewController
+        fromViewController = pagingViewControllers[lastVisiblePage]
+
+        fromViewController?.beginAppearanceTransition(false, animated: true)
         toViewController?.beginAppearanceTransition(true, animated: true)
-        toViewController?.endAppearanceTransition()
     }
 
     public func scrollViewDidEndDecelerating(scrollView: UIScrollView) {
-        guard scrollView.isEqual(contentScrollView), let pagingViewControllers = pagingViewControllers else { return }
+        guard scrollView === contentScrollView else { return }
 
         if case .Infinite = options.menuDisplayMode {
             if scrollView.contentOffset.x == 0 {
@@ -306,19 +308,24 @@ public class PagingMenuController: UIViewController, UIScrollViewDelegate {
         delegate?.didMoveToMenuPage?(currentPage)
 
         // invoke appearance on VCs
-        let viewController: UIViewController?
 
         if currentPage == lastVisiblePage {
-            // we're going back to the VC we came from. notify toVC that it's disappearing again
-            viewController = toViewController
+            // we're cancelling the swipe/ transition: going back to the VC we came from. notify VCs
+            toViewController?.beginAppearanceTransition(false, animated: true)
+            toViewController?.endAppearanceTransition()
+            fromViewController?.beginAppearanceTransition(true, animated: true)
+            fromViewController?.endAppearanceTransition()
         } else {
-            viewController = pagingViewControllers[lastVisiblePage]
+            // transition occured. notify VCs
+            fromViewController?.endAppearanceTransition()
+            toViewController?.endAppearanceTransition()
+
             lastVisiblePage = currentPage
         }
 
-        viewController?.beginAppearanceTransition(false, animated: true)
-        viewController?.endAppearanceTransition()
+
         toViewController = nil
+        fromViewController = nil
     }
 
     // MARK: - UIGestureRecognizer
@@ -526,6 +533,8 @@ public class PagingMenuController: UIViewController, UIScrollViewDelegate {
 
     /// The viewController that will be visible when scrolling ends
     private var toViewController: UIViewController?
+    /// The viewController that will be hidden when scrolling ends
+    private var fromViewController: UIViewController?
 
     private func viewCopyImageView(isFront isFront: Bool) -> UIImageView {
         let imageView = UIImageView()
