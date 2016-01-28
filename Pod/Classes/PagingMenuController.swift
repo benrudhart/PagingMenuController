@@ -231,6 +231,7 @@ public class PagingMenuController: UIViewController, UIScrollViewDelegate {
 
     public func setup(viewControllers viewControllers: [UIViewController]) {
         pagingViewControllers = viewControllers
+		lastVisiblePage = 0
 
         validateDefaultPage()
         validatePageNumbers()
